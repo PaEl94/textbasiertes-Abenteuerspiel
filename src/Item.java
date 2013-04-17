@@ -29,10 +29,10 @@ public class Item {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getLevel() {
+	public int getLevel() {
 		return level;
 	}
-	public void setLevel(String level) {
+	public void setLevel(int level) {
 		this.level = level;
 	}
 	

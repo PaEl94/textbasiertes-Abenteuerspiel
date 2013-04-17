@@ -1,15 +1,55 @@
+//Pascal
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.StringTokenizer;
+
+import Commands.Commands;
+import Commands.Drop;
+import Commands.Go;
+import Commands.Inspect;
+import Commands.Open;
+import Commands.Take;
+import Commands.Use;
 
 public class Checkinput {
 	
-	String input;
 	
 
+	public Checkinput() {
+		
 	
-	public void setInput(String input) {
-		this.input = input;
+	}
+	public Object Check(String a){
+		Go go = new Go();
+		Drop drop = new Drop();
+		Inspect inspect = new Inspect();
+		Open open = new Open();
+		Take take = new Take();
+		Use use = new Use();
+		ArrayList commands = new ArrayList();
+		commands.add(drop.getName());
+		commands.add(go.getName());
+		commands.add(open.getName());
+		commands.add(take.getName());
+		commands.add(inspect.getName());
+		commands.add(use.getName());
+		commands.add("hi");
+	
+		StringTokenizer st = new StringTokenizer(a," ");
+		String command = st.nextToken();
+		switch(command.toLowerCase()){  
+		  case "drop":return  commands.get(0);
+		  case "go":return  commands.get(1);
+		  case "open":return commands.get(2);
+		  case "take":return commands.get(3);
+		  case "inspect":return commands.get(4);
+		  case "use":return commands.get(5);
+		  case "hi":return "Hi!!" ;
+		 default:return "I did not catch that";
+		}
 	}
 	
-	public void check(){
-		if(input )
-	}
 }
+
+

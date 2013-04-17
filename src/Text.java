@@ -2,7 +2,7 @@
 public class Text {
 
 	String intro = "Welcome to 'insert title here'.";
-	String Text1 = "";
+	String Text1 = "asdf";
 
 	
 	
