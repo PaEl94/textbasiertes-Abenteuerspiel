@@ -2,17 +2,11 @@ package Commands;
 
 import java.util.ArrayList;
 
-public class Commands {
+public abstract class Commands {
 	
 
 	public Commands(){
 		
-		
-		
-		
-		
-		
+			
 	}
-	
-
 }
