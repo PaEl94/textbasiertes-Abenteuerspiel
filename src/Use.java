@@ -1,4 +1,4 @@
-package Commands;
+
 
 public class Use extends Commands {
 	String name = "use";

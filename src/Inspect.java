@@ -1,4 +1,4 @@
-package Commands;
+
 
 
 public class Inspect extends Commands {

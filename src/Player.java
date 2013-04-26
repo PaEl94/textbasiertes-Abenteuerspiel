@@ -4,18 +4,20 @@ public class Player {
 	String name;
 
     //Start im Zentrum der Karte.
-	int position==5;
+	public static int position=5;
 
     public Player(){
     }
 
 
-    public void setposition(int position){
-        this.position = position;    
+    public static void setposition(int position){
+        position = Player.position;    
     }
 	
     public int getPosition(){
-    return position;
+    	return position;
     }
+
+
 	
 }

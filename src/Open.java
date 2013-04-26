@@ -1,4 +1,4 @@
-package Commands;
+
 
 public class Open extends Commands {
 	String name = "open";
