@@ -2,6 +2,7 @@
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
+
 public class Checkinput extends Commands{
 
 	String input;
@@ -18,7 +19,7 @@ public class Checkinput extends Commands{
 	}
 
 
-	public Object Check(String input){
+	public String Check(String input){
 		Go go = new Go();
 		Drop drop = new Drop();
 		Inspect inspect = new Inspect();
@@ -39,14 +40,15 @@ public class Checkinput extends Commands{
 		StringTokenizer st = new StringTokenizer(input," ");
 		String command = st.nextToken();
 		switch(command.toLowerCase()){  
-		  case "drop":return  commandlist.get(0);
-          case "go":go.checkdirection(input);
+		  
+          case "go":System.out.println(go.checkdirection(input));
           case "open":return commandlist.get(2);
 		  case "take":return commandlist.get(3);
 		  case "inspect":return commandlist.get(4);
 		  case "use":return commandlist.get(5);
 		  case "hi":return "Hi!" ;
-		 default:return "I did not catch that";
+		  case "drop":return  commandlist.get(0);
+          default:System.out.println("I did not catch that");return "error";
 		}
 	}
 
