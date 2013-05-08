@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+
+
 public class Main {
 
 	public static void main(String args[]){	
@@ -8,12 +10,16 @@ public class Main {
         Scanner scan = new Scanner(System.in);
         Checkinput check = new Checkinput();
 		System.out.println(text.getIntro());
+		Player.setPosition(5);
+		
 		while(true){
             String input = scan.nextLine();
-            check.setInput(input);
             check.Check(input);
+            
+            
             if(player.dead == true){
             	scan.close();
+            	System.out.println("You lose");
             }
 		}
 		

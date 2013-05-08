@@ -3,18 +3,18 @@ public class Player {
 	boolean dead;
 	String name;
 
-    //Start im Zentrum der Karte.
-	public int position=5;
+     //Start im Zentrum der Karte.
+	static int position;
 
     public Player(){
     }
 
 
-    public void setPosition(int position){
-        this.position = position;
+    public static void setPosition(int p){
+        position = p;
     }
     
-public int getPosition(){
+    public static int getPosition(){
     	return position;
     }
 
