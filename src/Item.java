@@ -2,9 +2,11 @@ public class Item {
 	String content;
 	String appereance;
 	String name;
+	int dmg;
 	int level;
+	
 	//Basisklasse, hier gemeinsames
-	//Noch Klassen für jedes Item machen
+	//Noch Klassen fuer jedes Item machen
 	
 	public Item() {
 		
@@ -35,6 +37,7 @@ public class Item {
 	public void setLevel(int level) {
 		this.level = level;
 	}
+	
 	
 	
 }

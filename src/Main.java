@@ -8,12 +8,17 @@ public class Main {
         Text text = new Text();
         Player player = new Player();
         Scanner scan = new Scanner(System.in);
-        Checkinput check = new Checkinput();
+        Item firstnote = new Item();
+        firstnote.setContent("");
+        Inventory inv = new Inventory();
+        Checkinput check = new Checkinput(inv);
 		System.out.println(text.getIntro());
 		Player.setPosition(5);
+        inv.addInventory(firstnote);
 		
 		while(true){
-            String input = scan.nextLine();
+			
+            String input = scan.nextLine().toLowerCase();
             check.Check(input);
             
             
