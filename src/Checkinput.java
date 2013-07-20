@@ -6,9 +6,12 @@ import java.util.StringTokenizer;
 public class Checkinput extends Commands{
 
 	String input;
+    Inventory inv;
 
-	public Checkinput() {
-	}
+	public Checkinput(Inventory inv) {
+	this.inv = inv;
+    }
+
 
     public void setInput(String input){
 		this.input = input;
@@ -19,9 +22,9 @@ public class Checkinput extends Commands{
 	}
 
 
-	public String Check(String input){
+	public void Check(String input){
 		Go go = new Go();
-		Drop drop = new Drop();
+		Drop drop = new Drop(input,inv);
 		Inspect inspect = new Inspect();
 		Open open = new Open();
 		Take take = new Take();
@@ -40,15 +43,30 @@ public class Checkinput extends Commands{
 		StringTokenizer st = new StringTokenizer(input," ");
 		String command = st.nextToken();
 		switch(command.toLowerCase()){  
-		  
-          case "go":System.out.println(go.checkdirection(input));
-          case "open":return commandlist.get(2);
-		  case "take":return commandlist.get(3);
-		  case "inspect":return commandlist.get(4);
-		  case "use":return commandlist.get(5);
-		  case "hi":return "Hi!" ;
-		  case "drop":return  commandlist.get(0);
-          default:System.out.println("I did not catch that");return "error";
+          case "go":
+              System.out.println(go.checkdirection(input));
+              break;
+          case "open":
+              commandlist.get(2);
+              break;
+		  case "take":
+              commandlist.get(3);
+              break;
+		  case "inspect":
+              commandlist.get(4);
+              break;
+		  case "use":
+              commandlist.get(5);
+              break;
+		  case "drop":
+              System.out.println(drop.checkinventory());
+              break;
+          case "inventory":
+              inv.printInventory();             
+              break;
+          default:
+              System.out.println("I did not catch that");
+              break;
 		}
 	}
 
