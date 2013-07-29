@@ -22,22 +22,16 @@ public class Checkinput extends Commands{
 	}
 
 
-	public void Check(String input){
+	public void Check(String input,ArrayList rooms){
 		Go go = new Go();
 		Drop drop = new Drop(input,inv);
-		Inspect inspect = new Inspect();
-		Open open = new Open();
 		Take take = new Take();
-		Use use = new Use();
 		
 				
 		ArrayList<String> commandlist = new ArrayList<String>();
 		commandlist.add(drop.getName());
 		commandlist.add(go.getName());
-		commandlist.add(open.getName());
 		commandlist.add(take.getName());
-		commandlist.add(inspect.getName());
-		commandlist.add(use.getName());
 		commandlist.add("hi");
 	
 		StringTokenizer st = new StringTokenizer(input," ");
@@ -50,10 +44,16 @@ public class Checkinput extends Commands{
               commandlist.get(2);
               break;
 		  case "take":
-              commandlist.get(3);
+              System.out.println(take.checkcontent(input, rooms));
               break;
 		  case "inspect":
-              commandlist.get(4);
+			  for (int x = 0; x < rooms.size(); x++){
+					if(x == Player.position){ 		
+						Room thisroom = (Room) rooms.get(x);
+						System.out.println(thisroom.content.get(x));
+			  }
+			  }
+					
               break;
 		  case "use":
               commandlist.get(5);

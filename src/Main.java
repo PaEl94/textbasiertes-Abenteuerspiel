@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -8,18 +9,32 @@ public class Main {
         Text text = new Text();
         Player player = new Player();
         Scanner scan = new Scanner(System.in);
-        Item firstnote = new Item();
-        firstnote.setContent("");
         Inventory inv = new Inventory();
         Checkinput check = new Checkinput(inv);
-		System.out.println(text.getIntro());
+        
+        Item item = new Item();
+        
 		Player.setPosition(5);
-        inv.addInventory(firstnote);
-		
+		ArrayList<Room> rooms = new ArrayList<Room>();
+		inv.addInventory(item);
+        
+        for(int x = 0; x < rooms.size(); x++){
+        	Room room = new Room(x, item);
+        	x = room.position;
+        	room.content.add(item);
+        	rooms.add(room);
+
+        	}
+        for(int x = 0; x < rooms.size(); x++){ //Ueberprueft Inhalt von rooms
+        	System.out.print(rooms.get(x).toString());
+        	}
+
+        System.out.println(text.getIntro());
+
 		while(true){
 			
             String input = scan.nextLine().toLowerCase();
-            check.Check(input);
+            check.Check(input, rooms);
             
             
             if(player.dead == true){
