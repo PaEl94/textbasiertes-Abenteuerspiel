@@ -18,16 +18,14 @@ public class Main {
 		ArrayList<Room> rooms = new ArrayList<Room>();
 		inv.addInventory(item);
         
-        for(int x = 0; x < rooms.size(); x++){
+        for(int x = 0; x < 8; x++){
         	Room room = new Room(x, item);
-        	x = room.position;
+        	room.position = x;
         	room.content.add(item);
         	rooms.add(room);
 
         	}
-        for(int x = 0; x < rooms.size(); x++){ //Ueberprueft Inhalt von rooms
-        	System.out.print(rooms.get(x).toString());
-        	}
+     
 
         System.out.println(text.getIntro());
 
