@@ -19,10 +19,8 @@ public class Room {
 
 	public Room(int pos, Object Item){
 		this.position=pos-1;
-		 content.add(Item);
-
-		
 	}
+	
 	public ArrayList getContent(){
 		return content;
 	}

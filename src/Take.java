@@ -19,13 +19,13 @@ public class Take extends Commands{
 		input2 = st.nextToken();
 				
 		for (int x = 1; x < rooms.size(); x++){
-			if(x == Player.position){ 		//Fucking watch this one.
+			if(x == Player.position){
 				Room thisroom = (Room) rooms.get(x);
 				for(int i=0;i<thisroom.content.size(); i++){
 					if(thisroom.content.get(i).getClass().getName().equalsIgnoreCase(input2)){
 						contains = true;
 						thisroom.content.remove(i);
-						Inventory.inventory.add(i);
+						Inventory.inventory.add(thisroom.content.get(i));
 					}
 				}
 			}
@@ -34,7 +34,7 @@ public class Take extends Commands{
 			return "There is no item called " + input2 + " in this room.";
 		}
 		else{
-			return "You added " +input2 +"to your Inventory";
+			return "You added " + input2 + " to your Inventory";
 		}
 	}
 }
