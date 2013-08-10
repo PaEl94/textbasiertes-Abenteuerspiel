@@ -15,8 +15,11 @@ public class Drop extends Commands{
 	public Drop(String input,Inventory inv){
 		this.input = input;
 		this.inventory = inv;
+	/*sm,20130806: Wozu benoetigen Sie ein spezielles Inventory, 
+	               wo doch alle dessen Datenelement 'static' sind?*/
 		
 	}
+	
 	public String getName(){
 		return name;
 	}

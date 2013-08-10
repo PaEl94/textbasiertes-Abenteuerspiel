@@ -12,27 +12,30 @@ public class Main {
         Inventory inv = new Inventory();
         Checkinput check = new Checkinput(inv);
         
+        
         Item item = new Item();
         
 		Player.setPosition(5);
 		ArrayList<Room> rooms = new ArrayList<Room>();
 		inv.addInventory(item);
         
-        for(int x = 0; x < 8; x++){
-        	Room room = new Room(x, item);
-        	room.position = x;
-        	room.content.add(item);
+        for(int x = 1; x < 10; x++){
+        	Item roomitem = new Item();
+        	Room room = new Room();
+        	room.setPosition(x);
+        	room.content.add(roomitem);
         	rooms.add(room);
 
         	}
-     
+        Rooms roomclass = new Rooms(rooms);
+    
 
         System.out.println(text.getIntro());
 
 		while(true){
 			
             String input = scan.nextLine().toLowerCase();
-            check.Check(input, rooms);
+            check.Check(input, rooms,roomclass);
             
             
             if(player.dead == true){

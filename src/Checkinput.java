@@ -22,7 +22,7 @@ public class Checkinput extends Commands{
 	}
 
 
-	public void Check(String input,ArrayList rooms){
+	public void Check(String input,ArrayList rooms, Rooms roomsclass){
 		Go go = new Go();
 		Drop drop = new Drop(input,inv);
 		Take take = new Take();
@@ -36,41 +36,34 @@ public class Checkinput extends Commands{
 	
 		StringTokenizer st = new StringTokenizer(input," ");
 		String command = st.nextToken();
-		switch(command.toLowerCase()){  
-          case "go":
+		String commandLC = command.toLowerCase() ;
+
+        /*sm,20130806: Von 'switch' zu 'if/else if' gewechselt, weil 'switch' 
+                       erst ab SE7 mit Strings verwendet werden kann. */
+        if( commandLC.equals( "go") ) {
               System.out.println(go.checkdirection(input));
-              break;
-          case "open":
-              commandlist.get(2);
-              break;
-		  case "take":
-              System.out.println(take.checkcontent(input, rooms));
-              break;
-		  case "inspect":
+  		} else if( commandLC.equals( "open") ) {
+              commandlist.get(2);		
+		} else if( commandLC.equals( "take") ) {
+              System.out.println(take.checkcontent(input, rooms, roomsclass));		
+		} else if( commandLC.equals( "inspect") ) {
 			  for (int x = 0; x < rooms.size(); x++){
 					if(x == Player.position){ 		
 						Room thisroom = (Room) rooms.get(x);
 						System.out.println(thisroom.content.get(x));
 			  }
-			  }
-					
-              break;
-		  case "use":
-              commandlist.get(5);
-              break;
-		  case "drop":
-              System.out.println(drop.checkinventory());
-              break;
-          case "inventory":
-              inv.printInventory();             
-              break;
-          default:
-              System.out.println("I did not catch that");
-              break;
+			  }		
+		} else if( commandLC.equals( "use") ) {
+              commandlist.get(5);		
+		} else if( commandLC.equals( "drop") ) {
+              System.out.println(drop.checkinventory());		
+		} else if( commandLC.equals( "inventory") ) {
+              inv.printInventory();             		
+		} else{
+              System.out.println("I did not catch that");		
 		}
 	}
 
-	
 }
 
 
