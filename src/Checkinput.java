@@ -1,4 +1,5 @@
 //Pascal
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
@@ -22,10 +23,11 @@ public class Checkinput extends Commands{
 	}
 
 
-	public void Check(String input,ArrayList rooms, Rooms roomsclass){
+	public void Check(String input,ArrayList rooms, Rooms roomsclass, Player player) throws IOException{
 		Go go = new Go();
 		Drop drop = new Drop(input,inv);
 		Take take = new Take();
+		Riddle riddle = new Riddle(); 
 		
 				
 		ArrayList<String> commandlist = new ArrayList<String>();
@@ -36,10 +38,9 @@ public class Checkinput extends Commands{
 	
 		StringTokenizer st = new StringTokenizer(input," ");
 		String command = st.nextToken();
-		String commandLC = command.toLowerCase() ;
+		String commandLC = command.toLowerCase();
+		String target = st.nextToken().toLowerCase();
 
-        /*sm,20130806: Von 'switch' zu 'if/else if' gewechselt, weil 'switch' 
-                       erst ab SE7 mit Strings verwendet werden kann. */
         if( commandLC.equals( "go") ) {
               System.out.println(go.checkdirection(input));
   		} else if( commandLC.equals( "open") ) {
@@ -47,12 +48,16 @@ public class Checkinput extends Commands{
 		} else if( commandLC.equals( "take") ) {
               System.out.println(take.checkcontent(input, rooms, roomsclass));		
 		} else if( commandLC.equals( "inspect") ) {
-			  for (int x = 0; x < rooms.size(); x++){
-					if(x == Player.position){ 		
-						Room thisroom = (Room) rooms.get(x);
-						System.out.println(thisroom.content.get(x));
-			  }
-			  }		
+			
+			  //for (int x = 0; x < rooms.size(); x++){
+					//if(x == Player.position){ 		
+					//	Room thisroom = (Room) rooms.get(x);
+					//	System.out.println(thisroom.content.get(x));
+					//	}
+			if (target.equals("riddle")){
+				System.out.println(riddle.Checkanswer(player));
+				  }	
+							
 		} else if( commandLC.equals( "use") ) {
               commandlist.get(5);		
 		} else if( commandLC.equals( "drop") ) {
