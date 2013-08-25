@@ -1,16 +1,16 @@
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-
-
 public class Main {
 
-	public static void main(String args[]){	
+	public static void main(String args[]) throws IOException{	
         Text text = new Text();
         Player player = new Player();
         Scanner scan = new Scanner(System.in);
         Inventory inv = new Inventory();
         Checkinput check = new Checkinput(inv);
+        Riddle riddle = new Riddle();
         
         
         Item item = new Item();
@@ -25,26 +25,18 @@ public class Main {
         	room.setPosition(x);
         	room.content.add(roomitem);
         	rooms.add(room);
-
         	}
+        
         Rooms roomclass = new Rooms(rooms);
-    
 
-        System.out.println(text.getIntro());
+        System.out.println(text.intro);
+        System.out.println(riddle.position);
 
-		while(true){
-			
+		while(player.isDead()==false){
             String input = scan.nextLine().toLowerCase();
-            check.Check(input, rooms,roomclass);
+            check.Check(input, rooms,roomclass, player);
             
-            
-            if(player.dead == true){
-            	scan.close();
-            	System.out.println("You lose");
-            }
 		}
-		
+    	scan.close();
 	}
-	
-	
 }

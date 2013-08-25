@@ -19,5 +19,15 @@ public class Player {
     	return position;
     }
 
+
+	public void setDead(boolean dead) {
+		this.dead = dead;
+	}
+
+
+	public boolean isDead() {
+		return dead;
+	}
+
 	
 }
