@@ -5,9 +5,6 @@ public class Item {
 	int dmg;
 	int level;
 	
-	//Basisklasse, hier gemeinsames
-	//Noch Klassen fuer jedes Item machen
-	
 	public Item() {
 		
 	}

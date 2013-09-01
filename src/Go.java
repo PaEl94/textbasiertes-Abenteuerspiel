@@ -1,12 +1,6 @@
 import java.util.StringTokenizer;
 public class Go extends Commands {
 
-	String name = "go";
-
-	public String getName(){
-		return name;
-	}
-	
 
     public int checkdirection(String input){
     	StringTokenizer st = new StringTokenizer(input," ");

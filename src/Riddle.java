@@ -20,7 +20,7 @@ public class Riddle {
 	boolean solved;
 	
 	
-	public String Checkanswer(Player player) throws IOException{
+	public String checkAnswer(Player player) throws IOException{
 		InputStreamReader scanner = new InputStreamReader(System.in);
 		BufferedReader in = new BufferedReader(scanner);
 		
