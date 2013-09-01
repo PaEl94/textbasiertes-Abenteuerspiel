@@ -11,11 +11,10 @@ public class Main {
         Inventory inv = new Inventory();
         Checkinput check = new Checkinput(inv);
         Riddle riddle = new Riddle();
-        
-        
         Item item = new Item();
         
 		Player.setPosition(5);
+		
 		ArrayList<Room> rooms = new ArrayList<Room>();
 		inv.addInventory(item);
         
@@ -26,18 +25,18 @@ public class Main {
         	room.content.add(roomitem);
         	if(room.getPosition()==riddle.position){
         		room.content.add(riddle);
-        	}
+        		}
         	rooms.add(room);
         	}
         
         Rooms roomclass = new Rooms(rooms);
 
         System.out.println(text.intro);
-        System.out.println(riddle.position);
+        System.out.println(riddle.position); 
 
 		while(player.isDead()==false){
             String input = scan.nextLine().toLowerCase();
-            check.Check(input, rooms,roomclass, player);
+            check.check(input, rooms,roomclass, player);
             
 		}
     	scan.close();
