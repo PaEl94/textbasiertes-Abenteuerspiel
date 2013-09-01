@@ -1,4 +1,3 @@
-import java.util.Scanner;
 import java.io.*;
 
 public class Riddle {
@@ -22,22 +21,18 @@ public class Riddle {
 	
 	
 	public String Checkanswer(Player player) throws IOException{
-		//Scanner scan1 = new Scanner(System.in);
 		InputStreamReader scanner = new InputStreamReader(System.in);
 		BufferedReader in = new BufferedReader(scanner);
 		
 		System.out.println(Riddle);
-		//String playerAnswer = scan1.nextLine().toLowerCase();
 		String playerAnswer = in.readLine().toLowerCase();
 
 		if (playerAnswer.equals(answer) || playerAnswer.equals(answeralt)){
 			setSolved(true);
 			player.setDead(true);
-			//scan1.close();
 			return "You win.";
 		}
 		else{
-		//scan1.close();	
 		return "No reaction";		
 		
 		}

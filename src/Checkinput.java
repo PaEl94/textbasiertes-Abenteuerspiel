@@ -28,13 +28,13 @@ public class Checkinput extends Commands{
 		Drop drop = new Drop(input,inv);
 		Take take = new Take();
 		Riddle riddle = new Riddle(); 
+		Inspect inspect = new Inspect();
 		
 				
 		ArrayList<String> commandlist = new ArrayList<String>();
 		commandlist.add(drop.getName());
 		commandlist.add(go.getName());
 		commandlist.add(take.getName());
-		commandlist.add("hi");
 	
 		StringTokenizer st = new StringTokenizer(input," ");
 		String command = st.nextToken();
@@ -46,17 +46,20 @@ public class Checkinput extends Commands{
   		} else if( commandLC.equals( "open") ) {
               commandlist.get(2);		
 		} else if( commandLC.equals( "take") ) {
-              System.out.println(take.checkcontent(input, rooms, roomsclass));		
+			if(target.equals("monster")|| target.equals("riddle")){
+				System.out.println("You can't pick that up.");
+			}
+			else{
+				System.out.println(take.checkcontent(input, rooms, roomsclass));
+			}
 		} else if( commandLC.equals( "inspect") ) {
-			
-			  //for (int x = 0; x < rooms.size(); x++){
-					//if(x == Player.position){ 		
-					//	Room thisroom = (Room) rooms.get(x);
-					//	System.out.println(thisroom.content.get(x));
-					//	}
 			if (target.equals("riddle")){
 				System.out.println(riddle.Checkanswer(player));
-				  }	
+			}
+			else if(target.equals("room")){
+					inspect.printContent(rooms, roomsclass);
+				}
+				  	
 							
 		} else if( commandLC.equals( "use") ) {
               commandlist.get(5);		

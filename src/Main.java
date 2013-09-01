@@ -24,6 +24,9 @@ public class Main {
         	Room room = new Room();
         	room.setPosition(x);
         	room.content.add(roomitem);
+        	if(room.getPosition()==riddle.position){
+        		room.content.add(riddle);
+        	}
         	rooms.add(room);
         	}
         
