@@ -36,7 +36,7 @@ public class Main {
 
 		while(player.isDead()==false){
             String input = scan.nextLine().toLowerCase();
-            check.check(input, rooms,roomclass, player);
+            check.check(input, rooms,roomclass, player, riddle);
             
 		}
     	scan.close();
