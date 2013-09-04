@@ -11,11 +11,10 @@ public class Checkinput extends Commands{
 	this.inv = inv;
 	}
 	
-	public void check(String input, ArrayList rooms, Rooms roomsclass, Player player) throws IOException{
+	public void check(String input, ArrayList rooms, Rooms roomsclass, Player player, Riddle riddle) throws IOException{
 		Go go = new Go();
 		Drop drop = new Drop(input,inv, rooms, roomsclass);
 		Take take = new Take();
-		Riddle riddle = new Riddle(); 
 		Inspect inspect = new Inspect();
 		
 	
@@ -38,9 +37,16 @@ public class Checkinput extends Commands{
         	} 
         else if( commandLC.equals( "inspect") ) {
         	String target = st.nextToken().toLowerCase();
-        	if (target.equals("riddle")){
-        		System.out.println(riddle.checkAnswer(player));
+        	if (target.equals("riddle") | target.equals("wall")){
+        		if(player.position == riddle.position){
+        			System.out.println(riddle.checkAnswer(player));
+        			}
+        		else{
+        			System.out.println("There nothing to inspect.");
         		}
+        	}
+        			
+        	
         	else if(target.equals("room")){
         		inspect.printContent(rooms, roomsclass);
         		}
