@@ -12,7 +12,7 @@ public class Drop extends Commands{
 		this.inventory = inv;
 	}
 		
-	public String checkInventory(ArrayList rooms, Rooms roomsclass){
+	public String checkInventory(ArrayList rooms, Rooms roomsclass, Inventory inv){
 		StringTokenizer st = new StringTokenizer(input," ");
     	String input2 = st.nextToken();
 		input2 = st.nextToken();
@@ -21,7 +21,7 @@ public class Drop extends Commands{
 				for(int i=0;i<inventory.inventory.size();i++){
 					if(inventory.inventory.get(i).getClass().getName().equalsIgnoreCase(input2)){
 						contains = true;
-						roomsclass.getRoomContent(x-1).add(roomsclass.getRoomContent(x-1).get(i));
+						roomsclass.getRoomContent(x-1).add(inv.inventory.get(i));
 						inventory.inventory.remove(i);
 						}
 					}
