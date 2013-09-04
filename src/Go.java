@@ -6,7 +6,6 @@ public class Go extends Commands {
     	StringTokenizer st = new StringTokenizer(input," ");
     	String input2 = st.nextToken();
 		input2 = st.nextToken();
-		Player.getPosition();
 		boolean[] moveperm = new boolean[]{false,false,false,false};
 		switch(Player.getPosition()){
 		//moveperm[0]=north, moveperm[1]=east, moveperm[2]=south, moveperm[3]=west

@@ -32,11 +32,10 @@ public class Main {
         Rooms roomclass = new Rooms(rooms);
 
         System.out.println(text.intro);
-        System.out.println(riddle.position); 
 
 		while(player.isDead()==false){
             String input = scan.nextLine().toLowerCase();
-            check.check(input, rooms,roomclass, player, riddle);
+            check.check(input, rooms,roomclass, player);
             
 		}
     	scan.close();
