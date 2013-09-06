@@ -1,27 +1,20 @@
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-public class Drop extends Commands{
-	String input;
-	Inventory inventory;
-	boolean contains;
+public class Drop{
 	
-	
-	public Drop(String input,Inventory inv, ArrayList rooms, Rooms roomclass){
-		this.input = input;
-		this.inventory = inv;
-	}
-		
-	public String checkInventory(ArrayList rooms, Rooms roomsclass, Inventory inv){
+	public static String checkInventory(ArrayList rooms, Rooms roomsclass, Inventory inventory, String input, Player player){
 		StringTokenizer st = new StringTokenizer(input," ");
+		boolean contains = false;
+
     	String input2 = st.nextToken();
 		input2 = st.nextToken();
 		for (int x = 1; x < rooms.size()+1; x++){
-			if(x == Player.position){
+			if(x == player.position){
 				for(int i=0;i<inventory.inventory.size();i++){
 					if(inventory.inventory.get(i).getClass().getName().equalsIgnoreCase(input2)){
 						contains = true;
-						roomsclass.getRoomContent(x-1).add(inv.inventory.get(i));
+						roomsclass.getRoomContent(x-1).add(inventory.inventory.get(i));
 						inventory.inventory.remove(i);
 						}
 					}

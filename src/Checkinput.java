@@ -3,20 +3,9 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 
-public class Checkinput extends Commands{
-
-    Inventory inv;
-
-	public Checkinput(Inventory inv) {
-	this.inv = inv;
-	}
+public class Checkinput{
 	
-	public void check(String input, ArrayList rooms, Rooms roomsclass, Player player, Riddle riddle) throws IOException{
-		Go go = new Go();
-		Drop drop = new Drop(input,inv, rooms, roomsclass);
-		Take take = new Take();
-		Inspect inspect = new Inspect();
-		
+	public void check(String input, ArrayList<Room> rooms, Rooms roomsclass, Player player, Riddle riddle, Inventory inv) throws IOException{
 	
 		StringTokenizer st = new StringTokenizer(input," ");
 		String command = st.nextToken();
@@ -24,7 +13,7 @@ public class Checkinput extends Commands{
 		
 
         if( commandLC.equals( "go") ) {
-              System.out.println(go.checkdirection(input));
+              System.out.println(Go.checkdirection(input, player));
               }
         else if( commandLC.equals( "take") ) {
         	String target = st.nextToken().toLowerCase();
@@ -32,7 +21,7 @@ public class Checkinput extends Commands{
         		System.out.println("You can't pick that up.");
         		}
         	else{
-        		System.out.println(take.checkcontent(input, rooms, roomsclass));
+        		System.out.println(Take.checkcontent(input, rooms, roomsclass, inv, player));
         		}
         	} 
         else if( commandLC.equals( "inspect") ) {
@@ -46,13 +35,12 @@ public class Checkinput extends Commands{
         		}
         	}
         			
-        	
         	else if(target.equals("room")){
-        		inspect.printContent(rooms, roomsclass);
+        		Inspect.printContent(rooms, roomsclass, player);
         		}
         	} 
         else if( commandLC.equals( "drop") ) {
-        	System.out.println(drop.checkInventory(rooms, roomsclass, inv));		
+        	System.out.println(Drop.checkInventory(rooms, roomsclass, inv, input, player));		
         	} 
         else if( commandLC.equals( "inventory") ) {
         	inv.printInventory();             		
