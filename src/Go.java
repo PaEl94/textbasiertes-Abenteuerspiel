@@ -1,13 +1,13 @@
 import java.util.StringTokenizer;
-public class Go extends Commands {
+public class Go {
 
 
-    public int checkdirection(String input){
+    public static int checkdirection(String input, Player player){
     	StringTokenizer st = new StringTokenizer(input," ");
     	String input2 = st.nextToken();
 		input2 = st.nextToken();
 		boolean[] moveperm = new boolean[]{false,false,false,false};
-		switch(Player.getPosition()){
+		switch(player.getPosition()){
 		//moveperm[0]=north, moveperm[1]=east, moveperm[2]=south, moveperm[3]=west
 			case 1:
 				moveperm[1]=true;
@@ -56,7 +56,7 @@ public class Go extends Commands {
 		
         if(input2.equalsIgnoreCase("north")){
         	if(moveperm[0]){
-        		Player.setPosition(Player.getPosition()-3);
+        		player.setPosition(player.getPosition()-3);
             }
         	else{
             	System.out.println("You can't go that way!");
@@ -64,7 +64,7 @@ public class Go extends Commands {
     	}
         else if(input2.equalsIgnoreCase("west")){
         	if(moveperm[3]){
-        		Player.setPosition(Player.getPosition()-1);
+        		player.setPosition(player.getPosition()-1);
             }
         	else{
                 System.out.println("You can't go that way!");
@@ -72,7 +72,7 @@ public class Go extends Commands {
         }
         else if(input2.equalsIgnoreCase("south")){
         	if(moveperm[2]){
-        		Player.setPosition(Player.getPosition()+3);
+        		player.setPosition(player.getPosition()+3);
         	}
         	else{
                 System.out.println("You can't go that way!");
@@ -80,7 +80,7 @@ public class Go extends Commands {
         }
         else if(input2.equalsIgnoreCase("east")){ 	
         	if(moveperm[1]){
-        		Player.setPosition(Player.getPosition()+1);
+        		player.setPosition(player.getPosition()+1);
             }
         	else{
                 System.out.println("You can't go that way!");
@@ -89,7 +89,7 @@ public class Go extends Commands {
         else {
         	System.out.println("Go where?");
         	}
-        return Player.getPosition();
+        return player.getPosition();
 
     }
 }

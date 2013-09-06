@@ -1,10 +1,8 @@
 import java.util.ArrayList;
-import java.lang.Class.*;
 
 public class Inventory {
-/*sm,20130806: falsche Verwendung von 'static'? Zumindest sehr unorthodoxe.*/
 
-	static ArrayList<Object> inventory= new ArrayList<Object>();
+	ArrayList inventory= new ArrayList ();
 	/*sm,20130806: Ginge nicht einfach 'public class Inventory extends ArrayList<Object>'?
 	               Dann haetten Sie die Methoden 'add', 'remove' etc. gratis. */
 	
@@ -12,8 +10,8 @@ public class Inventory {
 	public Inventory(){
 	}
 	
-	public void addInventory(Object thing){
-		inventory.add(thing);
+	public void addInventory(Object item){
+		inventory.add(item);
 	}
 	public void printInventory(){
 		for(int i=0;i<inventory.size();i++)	{

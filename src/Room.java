@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class Room {
 	
-	public ArrayList<Object> content = new ArrayList<Object>();
+	public ArrayList content = new ArrayList();
 
 	int position;
 		

@@ -9,11 +9,11 @@ public class Main {
         Player player = new Player();
         Scanner scan = new Scanner(System.in);
         Inventory inv = new Inventory();
-        Checkinput check = new Checkinput(inv);
+        Checkinput check = new Checkinput();
         Riddle riddle = new Riddle();
         Item item = new Item();
         
-		Player.setPosition(5);
+		player.setPosition(5);
 		
 		ArrayList<Room> rooms = new ArrayList<Room>();
 		inv.addInventory(item);
@@ -35,9 +35,8 @@ public class Main {
 
 		while(player.isDead()==false){
             String input = scan.nextLine().toLowerCase();
-            check.check(input, rooms,roomclass, player, riddle);
-            
-		}
+            check.check(input, rooms,roomclass, player, riddle, inv);
+            }
     	scan.close();
 	}
 }
