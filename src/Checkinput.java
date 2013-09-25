@@ -5,7 +5,7 @@ import java.util.StringTokenizer;
 
 public class Checkinput{
 	
-	public void check(String input, ArrayList<Room> rooms, Rooms roomsclass, Player player, Riddle riddle, Inventory inv) throws IOException{
+	public void check(String input, ArrayList<Room> rooms, Rooms roomsclass, Player player, Riddle riddle, Inventory inv, Monster monster, Sword sword) throws IOException{
 	
 		StringTokenizer st = new StringTokenizer(input," ");
 		String command = st.nextToken();
@@ -33,8 +33,7 @@ public class Checkinput{
         		else{
         			System.out.println("There nothing to inspect.");
         		}
-        	}
-        			
+        	}		
         	else if(target.equals("room")){
         		Inspect.printContent(rooms, roomsclass, player);
         		}
@@ -44,6 +43,9 @@ public class Checkinput{
         	} 
         else if( commandLC.equals( "inventory") ) {
         	inv.printInventory();             		
+        	}
+        else if(commandLC.equals("attack")){
+        	Attack.checkTier(monster, sword, player, rooms, roomsclass, inv);
         	}
         else{
         	System.out.println("I did not catch that");

@@ -1,8 +1,7 @@
 import java.io.*;
 
 public class Riddle {
-	int p = 5;
-	int position = generatePosition(p);
+	int position = generatePosition(5);
 	
 	public int generatePosition(int p){
 		p = (int)(Math.random()*9-1+1) + 1;

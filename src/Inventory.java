@@ -6,10 +6,6 @@ public class Inventory {
 	/*sm,20130806: Ginge nicht einfach 'public class Inventory extends ArrayList<Object>'?
 	               Dann haetten Sie die Methoden 'add', 'remove' etc. gratis. */
 	
-		
-	public Inventory(){
-	}
-	
 	public void addInventory(Object item){
 		inventory.add(item);
 	}

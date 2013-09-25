@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 
 public class Rooms {
-	ArrayList rooms = new ArrayList();
+	ArrayList<Room> rooms = new ArrayList<Room>();
 	
 	
 	public Rooms(ArrayList<Room> rooms) {
@@ -10,11 +10,12 @@ public class Rooms {
 	}
 	
 	public int getRoomPosition(int a){
-		Room room = (Room) rooms.get(a);
+		Room room = rooms.get(a);
 		return room.getPosition();
 	}
 	public ArrayList getRoomContent(int b){
-		Room room = (Room) rooms.get(b);
+		Room room = rooms.get(b);
 		return room.getContent();
 	}
+	
 }

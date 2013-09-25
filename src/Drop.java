@@ -6,7 +6,6 @@ public class Drop{
 	public static String checkInventory(ArrayList rooms, Rooms roomsclass, Inventory inventory, String input, Player player){
 		StringTokenizer st = new StringTokenizer(input," ");
 		boolean contains = false;
-
     	String input2 = st.nextToken();
 		input2 = st.nextToken();
 		for (int x = 1; x < rooms.size()+1; x++){
@@ -21,7 +20,7 @@ public class Drop{
 				}
 			}
 		if(contains==false){
-			return "You have no item called " + input2 + " in your Inventory.";
+			return "You heclipse-javadoc:%E2%98%82=textbasiertes/src%3C%7BInventory.java%E2%98%83Inventory%5Einventory%E2%98%82ArrayListave no item called " + input2 + " in your Inventory.";
 		}
 		else{
 			return "You dropped " + input2;
