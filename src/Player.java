@@ -1,5 +1,5 @@
 public class Player {
-	boolean dead;
+	private boolean dead;
 	int position;
 
     public void setPosition(int p){

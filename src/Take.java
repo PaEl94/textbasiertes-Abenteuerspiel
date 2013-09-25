@@ -10,7 +10,6 @@ public class Take{
 		StringTokenizer st = new StringTokenizer(input," ");
 		String input2 = st.nextToken();
 		input2 = st.nextToken();
-		
 		for (int x = 1; x < rooms.size()+1; x++){
 			if(x == player.position){
 				for(int i=0;i<roomclass.getRoomContent(x-1).size(); i++){
