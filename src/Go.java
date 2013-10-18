@@ -6,6 +6,9 @@ public class Go {
     	StringTokenizer st = new StringTokenizer(input," ");
     	String input2 = st.nextToken();
 		input2 = st.nextToken();
+		if(input2.isEmpty()){
+			System.out.println("Go where?");
+		}
 		boolean[] moveperm = new boolean[]{false,false,false,false};
 		switch(player.getPosition()){
 		//moveperm[0]=north, moveperm[1]=east, moveperm[2]=south, moveperm[3]=west
