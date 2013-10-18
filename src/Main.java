@@ -16,7 +16,6 @@ public class Main {
 		player.setPosition(5);
 		
 		ArrayList<Room> rooms = new ArrayList<Room>();
-
         for(int x = 1; x < 10; x++){
         	Room room = new Room();
         	room.setPosition(x);
